@@ -1,0 +1,21 @@
+.calendar-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+[class*='btn-'] {
+  color: lightgray;
+  font-size: 1.5em;
+  padding: 2px 10px;
+  background: transparent;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.month-year {
+  font-weight: bold;
+  font-size: 1.4em;
+}

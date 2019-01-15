@@ -1,0 +1,8 @@
+.calendar-wrapper {
+  margin: 0 auto;
+  height: 400px;
+  width: 90%;
+  border: 1px solid #f3f3f3;
+  border-radius: 4px;
+  background: #fff;
+}
