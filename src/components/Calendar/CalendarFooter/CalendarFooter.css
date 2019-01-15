@@ -1,0 +1,7 @@
+.calendar-footer-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: .9em;
+  font-weight: bold;
+}

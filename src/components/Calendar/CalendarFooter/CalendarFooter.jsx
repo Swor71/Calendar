@@ -1,10 +1,13 @@
 import React, { PureComponent } from 'react';
 
+import './CalendarFooter.css';
+
 class CalendarFooter extends PureComponent {
   render() {
     return (
-      <div>
-
+      <div className='calendar-footer-wrapper'>
+        <span>Minimum stay varies</span>
+        <span>Updated 23 days ago</span>
       </div>
     );
   }

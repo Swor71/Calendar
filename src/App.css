@@ -4,11 +4,13 @@
   align-items: center;
   height: 100vh;
   background: linear-gradient(to top, #16222A, #3A6073);
+  color: #363b3f;
 }
 
 .container {
-  width: 400px;
+  width: 500px;
   height: 600px;
-  border: 2px solid #f3f3f3;
-  border-radius: 3px;
+  border: 2px solid #dee0e4;
+  border-radius: 4px;
+  background-color: #fff;
 }
