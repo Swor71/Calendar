@@ -1,0 +1,25 @@
+.calendar-body-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(50px, 1fr));
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-gap: 1px;
+}
+
+[class*='day'] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  min-width: 50px;
+}
+
+.weekday {
+  color: #000;
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.day {
+  border: 1px solid #dee0e4;
+  color: #dee0e4;
+}
