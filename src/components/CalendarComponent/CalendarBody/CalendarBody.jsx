@@ -1,18 +1,26 @@
 import React, { PureComponent } from 'react';
-import { daysArr, numberOfDaysInMonth, year, month } from '../../../utils/dateFormats';
+import PropTypes from 'prop-types';
 
 import './CalendarBody.css';
 
 class CalendarBody extends PureComponent {
+  static propTypes = {
+    daysArr: PropTypes.array,
+    arr: PropTypes.array,
+    emptyBlocks: PropTypes.array,
+  }
+
+  static defaultProps = {
+    daysArr: [],
+    arr: [],
+  }
+
   render() {
-    const amountOfDays = numberOfDaysInMonth(year, month);
-    let arr = [];
-    for (let i = 1; i <= amountOfDays; i++) {
-      arr.push(i);
-    }
+    const { daysArr, arr, emptyBlocks } = this.props;
     return (
       <div className='calendar-body__wrapper'>
         {daysArr.map((day, index) => <div className='weekday' key={index} >{day}</div>)}
+        {emptyBlocks.map((block) => <div className="emptyday" key={block}></div>)}
         {arr.map((day, index) => <div className='day' key={index} value={day} >{day}</div>)}
       </div>
     );

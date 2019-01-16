@@ -18,6 +18,10 @@
   font-weight: bold;
 }
 
+.emptyday {
+  background-color: transparent;
+}
+
 .day {
   border: 1px solid #dee0e4;
   color: #dee0e4;
