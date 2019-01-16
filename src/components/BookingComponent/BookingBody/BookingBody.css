@@ -1,0 +1,37 @@
+.booking-body__wrapper {
+  padding-top: 20px;
+}
+
+.booking-body__header {
+  font-weight: 600;
+  font-size: .9em;
+  margin-bottom: 5px;
+}
+
+.booking-body__arrow {
+  font-size: 1.2em;
+  padding: 0 20px;
+  vertical-align: top;
+}
+
+.booking-body__inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #dee0e4;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+[class*="booking-body__inputs--check-"] {
+  border: transparent;
+  width: 50%;
+  border-radius: 4px;
+  padding: 5px;
+  outline: none;
+  font-size: 1.2em;
+}
+
+[class*="booking-body__inputs--check-"]:focus {
+  background-color: paleturquoise;
+}

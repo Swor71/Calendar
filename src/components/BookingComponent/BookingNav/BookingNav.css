@@ -1,0 +1,25 @@
+.booking-nav__wrapper {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #dee0e4;
+}
+
+.booking-nav__price {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.booking-nav__price small {
+  font-size: .6em;
+}
+
+.booking-nav__rating {
+  color: teal;
+  padding-bottom: 20px;
+}
+
+.booking-nav__rating--amount {
+  color: initial;
+  font-size: .8em;
+  font-weight: 600;
+}
