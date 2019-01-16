@@ -8,22 +8,38 @@ import { daysArr, monthsArr, month, year, numberOfDaysInMonth, firstDayOfMonth }
 import './CalendarComponent.css';
 
 class CalendarComponent extends PureComponent {
+  state = {
+    month,
+  }
+
+  handleMonthChange = (value) => {
+    this.setState(prevState => ({ month: prevState.month + value }));
+  }
 
   render() {
+    const { month } = this.state;
+
     const amountOfDays = numberOfDaysInMonth(year, month);
     const startOfMonth = firstDayOfMonth(year, month);
-    let arr = [];
+    let currentMonth = [];
     let emptyBlocks = [];
     for (let i = 0; i <= startOfMonth; i++) {
       emptyBlocks.push(i);
     }
     for (let i = 1; i <= amountOfDays; i++) {
-      arr.push(i);
+      currentMonth.push(i);
     }
     return (
       <div className='calendar-component__wrapper'>
-        <CalendarNav date={`${monthsArr[month]} ${year}`} />
-        <CalendarBody arr={arr} daysArr={daysArr} emptyBlocks={emptyBlocks} />
+        <CalendarNav
+          date={`${monthsArr[month]} ${year}`}
+          onHandleMonthChange={this.handleMonthChange}
+        />
+        <CalendarBody
+          currentMonth={currentMonth}
+          daysArr={daysArr}
+          emptyBlocks={emptyBlocks}
+        />
         <CalendarFooter />
       </div>
     );
