@@ -1,5 +1,6 @@
 .booking-body__wrapper {
   padding-top: 20px;
+  position: relative;
 }
 
 .booking-body__header {
@@ -25,7 +26,7 @@
 
 [class*="booking-body__inputs--check-"] {
   border: transparent;
-  width: 50%;
+  width: 100%;
   border-radius: 4px;
   padding: 5px;
   outline: none;

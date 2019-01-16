@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
+import { daysArr, numberOfDaysInMonth, year, month } from '../../../utils/dateFormats';
 
 import './CalendarBody.css';
 
 class CalendarBody extends PureComponent {
   render() {
-    const daysArr = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    const amountOfDays = numberOfDaysInMonth(year, month);
     let arr = [];
-    for (let i = 1; i <= 31; i++) {
+    for (let i = 1; i <= amountOfDays; i++) {
       arr.push(i);
     }
     return (

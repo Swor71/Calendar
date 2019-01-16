@@ -6,7 +6,8 @@
   border-radius: 4px;
   background: #fff;
   padding: 20px;
-  position: relative;
+  position: absolute;
+  top: 112px;
 }
 
 .calendar-component__wrapper::before {
