@@ -3,12 +3,12 @@ import CalendarNav from './CalendarNav/CalendarNav';
 import CalendarBody from './CalendarBody/CalendarBody';
 import CalendarFooter from './CalendarFooter/CalendarFooter';
 
-import './Calendar.css';
+import './CalendarComponent.css';
 
-class Calendar extends PureComponent {
+class CalendarComponent extends PureComponent {
   render() {
     return (
-      <div className='calendar-wrapper'>
+      <div className='calendar-component__wrapper'>
         <CalendarNav />
         <CalendarBody />
         <CalendarFooter />
@@ -17,4 +17,4 @@ class Calendar extends PureComponent {
   }
 }
 
-export default Calendar;
+export default CalendarComponent;

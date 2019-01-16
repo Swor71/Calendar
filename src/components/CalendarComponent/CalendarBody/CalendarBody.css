@@ -1,8 +1,7 @@
-.calendar-body-wrapper {
+.calendar-body__wrapper {
   display: grid;
   grid-template-columns: repeat(7, minmax(50px, 1fr));
   grid-template-rows: repeat(auto-fill, 1fr);
-  grid-gap: 1px;
   margin-top: 10px;
 }
 
@@ -15,7 +14,6 @@
 }
 
 .weekday {
-  color: #000;
   font-size: .9em;
   font-weight: bold;
 }
@@ -23,4 +21,11 @@
 .day {
   border: 1px solid #dee0e4;
   color: #dee0e4;
+  cursor: pointer;
+  transition: .1s;
+}
+
+.day:hover {
+  color: #fff;
+  background-color: #dee0e4;
 }
