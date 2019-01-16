@@ -11,6 +11,7 @@
 
 .booking-nav__price small {
   font-size: .6em;
+  margin-left: 5px;
 }
 
 .booking-nav__rating {

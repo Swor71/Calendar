@@ -7,7 +7,12 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <BookingComponent />
+        <BookingComponent
+          price={298}
+          rating={4.5}
+          reviews={123}
+          availableDates={[]}
+        />
       </div>
     );
   }
