@@ -31,6 +31,7 @@
   padding: 5px;
   outline: none;
   font-size: 1.2em;
+  text-align: center;
 }
 
 [class*="booking-body__inputs--check-"]:focus {

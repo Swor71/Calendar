@@ -17,12 +17,14 @@ class BookingComponent extends Component {
   state = {
     month,
     year,
-    selectedDate: '',
+    checkInDate: '',
+    checkOutDate: '',
+    activeInput: '',
     showCalendar: false,
   }
 
-  handleShowCalendar = () => {
-    this.setState({ showCalendar: true });
+  handleShowCalendar = (type) => {
+    this.setState({ showCalendar: true, activeInput: type });
   }
 
   handleMonthChange = (value) => {
@@ -30,6 +32,7 @@ class BookingComponent extends Component {
   }
 
   handleSelectDate = (day) => {
+    const { activeInput } = this.state;
     let _month = this.state.month;
     let _year = this.state.year;
     if (_month >= 12) {
@@ -39,13 +42,16 @@ class BookingComponent extends Component {
       _month += 12;
       _year -= 1;
     }
-
     const date = `${day}/${_month + 1}/${_year}`;
-    this.setState({ selectedDate: date, showCalendar: false });
+    if (activeInput === 'checkInDate') {
+      this.setState({ checkInDate: date, showCalendar: false });
+    } else if (activeInput === 'checkOutDate') {
+      this.setState({ checkOutDate: date, showCalendar: false });
+    }
   }
 
   render() {
-    const { selectedDate, showCalendar, month, year } = this.state;
+    const { checkInDate, checkOutDate, showCalendar, month, year } = this.state;
     const { price, rating, reviews } = this.props;
     const currentDate = formatDate(year, month);
 
@@ -71,7 +77,7 @@ class BookingComponent extends Component {
           reviews={reviews}
         />
         <BookingBody
-          calendarData={{ emptyBlocks, currentMonth, currentDate, showCalendar, selectedDate }}
+          calendarData={{ emptyBlocks, currentMonth, currentDate, showCalendar, checkInDate, checkOutDate }}
           onHandleShowCalendar={this.handleShowCalendar}
           onHandleMonthChange={this.handleMonthChange}
           onHandleSelectDate={this.handleSelectDate}

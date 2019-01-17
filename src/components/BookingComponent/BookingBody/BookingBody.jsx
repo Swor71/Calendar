@@ -13,25 +13,28 @@ class BookingBody extends PureComponent {
   }
 
   render() {
-    const { calendarData, calendarData: { selectedDate, showCalendar }, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar } = this.props;
+    const { calendarData, calendarData: { checkInDate, checkOutDate, showCalendar }, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar } = this.props;
 
     return (
       <div className="booking-body__wrapper">
         <div className="booking-body__header">Dates</div>
         <div className="booking-body__inputs">
           <input
-            onClick={onHandleShowCalendar}
+            onClick={() => onHandleShowCalendar('checkInDate')}
+            readOnly
             type="text"
             placeholder="Check In"
             className="booking-body__inputs--check-in"
-            value={selectedDate}
+            value={checkInDate}
           />
           <span className="booking-body__arrow">⟶</span>
           <input
-            onClick={onHandleShowCalendar}
+            onClick={() => onHandleShowCalendar('checkOutDate')}
+            readOnly
             type="text"
             placeholder="Check Out"
             className="booking-body__inputs--check-out"
+            value={checkOutDate}
           />
           {showCalendar
             ? <CalendarComponent
