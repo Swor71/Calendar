@@ -5,19 +5,19 @@ import './CalendarNav.css';
 
 class CalendarNav extends PureComponent {
   static propTypes = {
-    date: PropTypes.string,
+    currentDate: PropTypes.string,
     onHandleMonthChange: PropTypes.func,
   }
 
   render() {
-    const { date, onHandleMonthChange } = this.props;
+    const { currentDate, onHandleMonthChange } = this.props;
     return (
       <div className="calendar-nav__wrapper">
         <button
           className="calendar-nav__btn--arrow-left"
           onClick={() => onHandleMonthChange(-1)}
         >⟵</button>
-        <span className="calendar-nav__date">{date}</span>
+        <span className="calendar-nav__date">{currentDate}</span>
         <button
           className="calendar-nav__btn--arrow-right"
           onClick={() => onHandleMonthChange(1)}

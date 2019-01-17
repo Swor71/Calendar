@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import BookingNav from './BookingNav/BookingNav';
 import BookingBody from './BookingBody/BookingBody';
 import PropTypes from 'prop-types';
-import { monthsArr, month, year, numberOfDaysInMonth, firstDayOfMonth } from '../../utils/dateFormats';
+import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate } from '../../utils/dateFormats';
 
 import './BookingComponent.css';
 
-class BookingComponent extends PureComponent {
+class BookingComponent extends Component {
   static propTypes = {
     price: PropTypes.number,
     rating: PropTypes.number,
@@ -16,12 +16,13 @@ class BookingComponent extends PureComponent {
 
   state = {
     month,
+    year,
     selectedDate: '',
     showCalendar: false,
   }
 
   handleShowCalendar = () => {
-    this.setState(prevState => ({ showCalendar: !prevState.showCalendar }));
+    this.setState({ showCalendar: true });
   }
 
   handleMonthChange = (value) => {
@@ -29,15 +30,14 @@ class BookingComponent extends PureComponent {
   }
 
   handleSelectDate = (day) => {
-    const date = `${day}/${month + 1}/${year}`;
+    const date = `${day}/${this.state.month + 1}/${this.state.year}`;
     this.setState({ selectedDate: date, showCalendar: false });
   }
 
   render() {
-    const { selectedDate, showCalendar, month } = this.state;
+    const { selectedDate, showCalendar, month, year } = this.state;
     const { price, rating, reviews } = this.props;
-
-    const date = `${monthsArr[month]} ${year}`;
+    const currentDate = formatDate(year, month);
 
     const amountOfDays = numberOfDaysInMonth(year, month);
     const startOfMonth = firstDayOfMonth(year, month);
@@ -61,7 +61,7 @@ class BookingComponent extends PureComponent {
           reviews={reviews}
         />
         <BookingBody
-          calendarData={{ emptyBlocks, currentMonth, date, showCalendar, selectedDate }}
+          calendarData={{ emptyBlocks, currentMonth, currentDate, showCalendar, selectedDate }}
           onHandleShowCalendar={this.handleShowCalendar}
           onHandleMonthChange={this.handleMonthChange}
           onHandleSelectDate={this.handleSelectDate}

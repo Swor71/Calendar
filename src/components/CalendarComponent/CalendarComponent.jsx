@@ -15,12 +15,12 @@ class CalendarComponent extends PureComponent {
   }
 
   render() {
-    const { calendarData, calendarData: { date }, onHandleSelectDate, onHandleMonthChange } = this.props;
+    const { calendarData, calendarData: { currentDate }, onHandleSelectDate, onHandleMonthChange } = this.props;
 
     return (
       <div className='calendar-component__wrapper'>
         <CalendarNav
-          date={date}
+          currentDate={currentDate}
           onHandleMonthChange={onHandleMonthChange}
         />
         <CalendarBody
