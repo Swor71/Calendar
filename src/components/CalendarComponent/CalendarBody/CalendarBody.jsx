@@ -16,10 +16,20 @@ class CalendarBody extends PureComponent {
       <div className='calendar-body__wrapper'>
         {daysArr.map(day => <div className='weekday' key={day} >{day}</div>)}
         {emptyBlocks.map(block => <div className="emptyday" key={block}></div>)}
-        {currentMonth.map(day => <div className='day' key={day} onClick={() => onHandleSelectDate(day)}>{day}</div>)}
+        {currentMonth.map(day => {
+          const { available, dayNumber } = day;
+          const disabledClass = available ? '' : 'disabled';
+          return (
+            <button
+              key={dayNumber}
+              className={`day ${disabledClass}`}
+              disabled={available ? null : true}
+              onClick={() => onHandleSelectDate(dayNumber)}
+            >{dayNumber}</button>
+          );
+        })}
       </div>
     );
   }
 }
-
 export default CalendarBody;

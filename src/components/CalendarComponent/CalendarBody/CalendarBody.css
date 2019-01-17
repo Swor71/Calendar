@@ -13,6 +13,15 @@
   min-width: 50px;
 }
 
+.day.disabled {
+  text-decoration: line-through;
+}
+
+.day.disabled:hover {
+  color: #ea6462;
+  background-color: #fff;
+}
+
 .weekday {
   font-size: .9em;
   font-weight: bold;
@@ -23,10 +32,12 @@
 }
 
 .day {
+  font-size: 1.2em;
   border: 1px solid #dee0e4;
   color: #dee0e4;
   cursor: pointer;
   transition: .1s;
+  background: transparent;
 }
 
 .day:hover {

@@ -66,7 +66,11 @@ class BookingComponent extends Component {
       emptyBlocks = [];
     }
     for (let i = 1; i <= amountOfDays; i++) {
-      currentMonth.push(i);
+      const randomNumber = Math.floor(Math.random() * 10);
+      currentMonth.push({
+        dayNumber: i,
+        available: randomNumber >= 5 ? true : false,
+      });
     }
 
     return (
