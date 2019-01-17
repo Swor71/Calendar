@@ -10,7 +10,7 @@ class BookingComponent extends PureComponent {
     price: PropTypes.number,
     rating: PropTypes.number,
     reviews: PropTypes.number,
-    availableDates: PropTypes.array,
+    availableDates: PropTypes.arrayOf(PropTypes.object),
   }
 
   render() {

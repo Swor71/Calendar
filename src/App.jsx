@@ -11,7 +11,7 @@ class App extends Component {
           price={298}
           rating={4.5}
           reviews={123}
-          availableDates={[]}
+          availableDates={[{}]}
         />
       </div>
     );

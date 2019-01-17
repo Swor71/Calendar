@@ -5,24 +5,18 @@ import './CalendarBody.css';
 
 class CalendarBody extends PureComponent {
   static propTypes = {
-    daysArr: PropTypes.arrayOf(PropTypes.number),
+    daysArr: PropTypes.arrayOf(PropTypes.string),
     currentMonth: PropTypes.arrayOf(PropTypes.number),
     emptyBlocks: PropTypes.arrayOf(PropTypes.number),
-  }
-
-  static defaultProps = {
-    daysArr: [],
-    currentMonth: [],
-    emptyBlocks: [],
   }
 
   render() {
     const { daysArr, currentMonth, emptyBlocks } = this.props;
     return (
       <div className='calendar-body__wrapper'>
-        {daysArr.map((day, index) => <div className='weekday' key={index} >{day}</div>)}
+        {daysArr.map(day => <div className='weekday' key={day} >{day}</div>)}
         {emptyBlocks.map((block) => <div className="emptyday" key={block}></div>)}
-        {currentMonth.map((day, index) => <div className='day' key={index} value={day} >{day}</div>)}
+        {currentMonth.map(day => <div className='day' key={day} value={day} >{day}</div>)}
       </div>
     );
   }

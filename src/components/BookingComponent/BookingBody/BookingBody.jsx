@@ -8,9 +8,8 @@ class BookingBody extends PureComponent {
     showCalendar: true,
   }
 
-  handleShowCalendar = ({ target }) => {
-    const { value } = target;
-    this.setState(prevState => ({ showCalendar: !prevState.showCalendar, cell: value }));
+  handleShowCalendar = () => {
+    this.setState(prevState => ({ showCalendar: !prevState.showCalendar }));
   }
 
   render() {

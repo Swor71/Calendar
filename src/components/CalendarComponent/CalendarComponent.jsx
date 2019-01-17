@@ -26,6 +26,9 @@ class CalendarComponent extends PureComponent {
     for (let i = 0; i <= startOfMonth; i++) {
       emptyBlocks.push(i);
     }
+    if (emptyBlocks.length > 6) {
+      emptyBlocks = [];
+    }
     for (let i = 1; i <= amountOfDays; i++) {
       currentMonth.push(i);
     }

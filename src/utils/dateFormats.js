@@ -8,7 +8,7 @@ export const day = date.getDay();
 export const month = date.getMonth();
 
 export function numberOfDaysInMonth(yyyy, mm) {
-  return new Date(yyyy, mm, 0).getDate();
+  return new Date(yyyy, mm + 1, 0).getDate();
 }
 
 export function firstDayOfMonth(yyyy, mm) {
