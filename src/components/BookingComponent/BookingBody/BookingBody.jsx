@@ -1,34 +1,45 @@
 import React, { PureComponent } from 'react';
 import CalendarComponent from '../../CalendarComponent/CalendarComponent';
+import PropTypes from 'prop-types';
 
 import './BookingBody.css';
 
 class BookingBody extends PureComponent {
-  state = {
-    showCalendar: true,
-  }
-
-  handleShowCalendar = () => {
-    this.setState(prevState => ({ showCalendar: !prevState.showCalendar }));
+  static propTypes = {
+    calendarData: PropTypes.object,
+    onHandleSelectDate: PropTypes.func,
+    onHandleMonthChange: PropTypes.func,
+    onHandleShowCalendar: PropTypes.func,
   }
 
   render() {
+    const { calendarData, calendarData: { selectedDate, showCalendar }, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar } = this.props;
+
     return (
       <div className="booking-body__wrapper">
         <div className="booking-body__header">Dates</div>
         <div className="booking-body__inputs">
           <input
-            onClick={this.handleShowCalendar}
+            onClick={onHandleShowCalendar}
             type="text"
             placeholder="Check In"
-            className="booking-body__inputs--check-in" />
+            className="booking-body__inputs--check-in"
+            value={selectedDate}
+          />
           <span className="booking-body__arrow">⟶</span>
           <input
-            onClick={this.handleShowCalendar}
+            onClick={onHandleShowCalendar}
             type="text"
             placeholder="Check Out"
-            className="booking-body__inputs--check-out" />
-          {this.state.showCalendar ? <CalendarComponent /> : null}
+            className="booking-body__inputs--check-out"
+          />
+          {showCalendar
+            ? <CalendarComponent
+              calendarData={calendarData}
+              onHandleSelectDate={onHandleSelectDate}
+              onHandleMonthChange={onHandleMonthChange}
+            />
+            : null}
         </div>
       </div>
     );
