@@ -32,8 +32,8 @@ class BookingComponent extends Component {
   handleSelectDate = (day) => {
     let _month = this.state.month;
     let _year = this.state.year;
-    if (_month > 12) {
-      _month += -12;
+    if (_month >= 12) {
+      _month -= 12;
       _year += 1;
     } else if (_month < 0) {
       _month += 12;
