@@ -10,13 +10,26 @@
   top: 112px;
 }
 
-.calendar-component__wrapper::before {
+.calendar-component__wrapper.checkInDate::before {
   content: '';
   position: absolute;
   height: 16px;
   width: 16px;
   top: -10px;
   left: 26px;
+  background: #fff;
+  border-right: 1px solid #dee0e4;
+  border-top: 1px solid #dee0e4;
+  transform: rotate(-45deg);
+}
+
+.calendar-component__wrapper.checkOutDate::before {
+  content: '';
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: -10px;
+  right: 26px;
   background: #fff;
   border-right: 1px solid #dee0e4;
   border-top: 1px solid #dee0e4;

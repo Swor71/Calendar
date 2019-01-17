@@ -51,7 +51,7 @@ class BookingComponent extends Component {
   }
 
   render() {
-    const { checkInDate, checkOutDate, showCalendar, month, year } = this.state;
+    const { checkInDate, checkOutDate, showCalendar, month, year, activeInput } = this.state;
     const { price, rating, reviews } = this.props;
     const currentDate = formatDate(year, month);
 
@@ -77,7 +77,7 @@ class BookingComponent extends Component {
           reviews={reviews}
         />
         <BookingBody
-          calendarData={{ emptyBlocks, currentMonth, currentDate, showCalendar, checkInDate, checkOutDate }}
+          calendarData={{ emptyBlocks, currentMonth, currentDate, showCalendar, checkInDate, checkOutDate, activeInput }}
           onHandleShowCalendar={this.handleShowCalendar}
           onHandleMonthChange={this.handleMonthChange}
           onHandleSelectDate={this.handleSelectDate}

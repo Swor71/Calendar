@@ -15,10 +15,11 @@ class CalendarComponent extends PureComponent {
   }
 
   render() {
-    const { calendarData, calendarData: { currentDate }, onHandleSelectDate, onHandleMonthChange } = this.props;
+    const { calendarData, calendarData: { currentDate, activeInput }, onHandleSelectDate, onHandleMonthChange } = this.props;
 
+    const inputSelect = 'calendar-component__wrapper ' + `${activeInput === 'checkOutDate' ? 'checkOutDate' : 'checkInDate'}`;
     return (
-      <div className='calendar-component__wrapper'>
+      <div className={inputSelect}>
         <CalendarNav
           currentDate={currentDate}
           onHandleMonthChange={onHandleMonthChange}
