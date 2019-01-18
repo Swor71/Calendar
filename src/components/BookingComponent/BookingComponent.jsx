@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import BookingNav from './BookingNav/BookingNav';
 import BookingBody from './BookingBody/BookingBody';
 import PropTypes from 'prop-types';
@@ -6,7 +6,7 @@ import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate } from '.
 
 import './BookingComponent.css';
 
-class BookingComponent extends Component {
+class BookingComponent extends PureComponent {
   static propTypes = {
     price: PropTypes.number,
     rating: PropTypes.number,
@@ -43,18 +43,13 @@ class BookingComponent extends Component {
       _year -= 1;
     }
     const date = `${day}/${_month + 1}/${_year}`;
-    if (activeInput === 'checkInDate') {
-      this.setState({ checkInDate: date, showCalendar: false });
-    } else if (activeInput === 'checkOutDate') {
-      this.setState({ checkOutDate: date, showCalendar: false });
-    }
+    this.setState({ [activeInput]: date, showCalendar: false });
   }
 
   render() {
     const { checkInDate, checkOutDate, showCalendar, month, year, activeInput } = this.state;
     const { price, rating, reviews } = this.props;
     const currentDate = formatDate(year, month);
-
     const amountOfDays = numberOfDaysInMonth(year, month);
     const startOfMonth = firstDayOfMonth(year, month);
     let currentMonth = [];
