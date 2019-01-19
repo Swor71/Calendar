@@ -69,7 +69,8 @@ class App extends Component {
           price={298}
           rating={4.5}
           reviews={123}
-          calendarData={{ emptyBlocks, daysInMonth, currentDate, showCalendar, checkInDate, checkOutDate, activeInput, availableDates }}
+          availableDates={availableDates}
+          calendarData={{ emptyBlocks, daysInMonth, currentDate, showCalendar, checkInDate, checkOutDate, activeInput }}
           onHandleShowCalendar={this.handleShowCalendar}
           onHandleMonthChange={this.handleMonthChange}
           onHandleSelectDate={this.handleSelectDate}

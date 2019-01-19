@@ -10,6 +10,7 @@ class BookingComponent extends PureComponent {
     price: PropTypes.number,
     rating: PropTypes.number,
     reviews: PropTypes.number,
+    availableDates: PropTypes.arrayOf(PropTypes.object),
     calendarData: PropTypes.objectOf(PropTypes.any),
     onHandleShowCalendar: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
@@ -17,7 +18,7 @@ class BookingComponent extends PureComponent {
   }
 
   render() {
-    const { price, rating, reviews, calendarData, onHandleShowCalendar, onHandleMonthChange, onHandleSelectDate } = this.props;
+    const { price, rating, reviews, calendarData, onHandleShowCalendar, onHandleMonthChange, onHandleSelectDate, availableDates } = this.props;
 
     return (
       <div className='booking-component__wrapper'>
@@ -27,6 +28,7 @@ class BookingComponent extends PureComponent {
           reviews={reviews}
         />
         <BookingBody
+          availableDates={availableDates}
           calendarData={calendarData}
           onHandleShowCalendar={onHandleShowCalendar}
           onHandleMonthChange={onHandleMonthChange}

@@ -9,13 +9,14 @@ import './CalendarComponent.css';
 
 class CalendarComponent extends PureComponent {
   static propTypes = {
+    availableDates: PropTypes.arrayOf(PropTypes.object),
     calendarData: PropTypes.objectOf(PropTypes.any),
     onHandleSelectDate: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
   }
 
   render() {
-    const { calendarData, calendarData: { currentDate, activeInput }, onHandleSelectDate, onHandleMonthChange } = this.props;
+    const { calendarData, calendarData: { currentDate, activeInput }, availableDates, onHandleSelectDate, onHandleMonthChange } = this.props;
     const selectedInput = 'calendar-component__wrapper ' + (activeInput === 'checkOutDate' ? 'checkOutDate' : 'checkInDate');
 
     return (
@@ -26,6 +27,7 @@ class CalendarComponent extends PureComponent {
         />
         <CalendarBody
           calendarData={calendarData}
+          availableDates={availableDates}
           onHandleSelectDate={onHandleSelectDate}
         />
         <CalendarFooter />

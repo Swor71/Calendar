@@ -7,11 +7,12 @@ import './CalendarBody.css';
 class CalendarBody extends PureComponent {
   static propTypes = {
     calendarData: PropTypes.objectOf(PropTypes.any),
+    availableDates: PropTypes.arrayOf(PropTypes.object),
     onHandleSelectDate: PropTypes.func,
   }
 
   render() {
-    const { calendarData: { daysInMonth, emptyBlocks, availableDates }, onHandleSelectDate } = this.props;
+    const { calendarData: { daysInMonth, emptyBlocks }, availableDates, onHandleSelectDate } = this.props;
 
     let daysAndAvailability = [];
     daysInMonth.forEach((item, i) => {

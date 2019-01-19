@@ -6,6 +6,7 @@ import './BookingBody.css';
 
 class BookingBody extends PureComponent {
   static propTypes = {
+    availableDates: PropTypes.arrayOf(PropTypes.object),
     calendarData: PropTypes.objectOf(PropTypes.any),
     onHandleSelectDate: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
@@ -13,7 +14,7 @@ class BookingBody extends PureComponent {
   }
 
   render() {
-    const { calendarData, calendarData: { checkInDate, checkOutDate, showCalendar }, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar } = this.props;
+    const { calendarData, calendarData: { checkInDate, checkOutDate, showCalendar }, availableDates, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar } = this.props;
 
     return (
       <div className="booking-body__wrapper">
@@ -39,6 +40,7 @@ class BookingBody extends PureComponent {
           {showCalendar
             ? <CalendarComponent
               calendarData={calendarData}
+              availableDates={availableDates}
               onHandleSelectDate={onHandleSelectDate}
               onHandleMonthChange={onHandleMonthChange}
             />
