@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { daysArr } from '../../../utils/dateFormats';
+import { daysArr, dayOfMonth, month } from '../../../utils/dateFormats';
 
 import './CalendarBody.css';
 
@@ -25,12 +25,13 @@ class CalendarBody extends PureComponent {
         {emptyBlocks.map(block => <div className="emptyday" key={block}></div>)}
         {daysAndAvailability.map(day => {
           const { available, dayNumber } = day;
-          const disabledClass = available ? '' : 'disabled';
+          const disabledClass = (this.props.calendarData.month >= month) && available ? '' : 'disabled';
+          const today = (dayOfMonth === dayNumber) && (month === this.props.calendarData.month) ? 'today' : '';
           return (
             <button
               key={dayNumber}
-              className={`day ${disabledClass}`}
-              disabled={available ? false : true}
+              className={`day ${disabledClass} ${today}`}
+              disabled={(this.props.calendarData.month >= month) && available ? false : true}
               onClick={() => onHandleSelectDate(dayNumber)}
             >{dayNumber}</button>
           );

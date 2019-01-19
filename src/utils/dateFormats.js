@@ -3,7 +3,8 @@ export const monthsArr = ['January', 'February', 'March', 'April', 'May', 'June'
 
 const date = new Date();
 
-export const day = date.getDay();
+export const dayOfWeek = date.getDay();
+export const dayOfMonth = date.getDate();
 export const month = date.getMonth();
 export const year = date.getFullYear();
 

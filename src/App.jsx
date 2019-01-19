@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BookingComponent from './components/BookingComponent/BookingComponent';
-import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate, selectDate } from './utils/dateFormats';
+import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate, selectDate, dayOfMonth } from './utils/dateFormats';
 
 import './App.css';
 
@@ -20,9 +20,17 @@ class App extends Component {
     const amountOfDays = numberOfDaysInMonth(year, month);
     for (let i = 1; i <= amountOfDays; i++) {
       const randomNumber = Math.floor(Math.random() * 10);
-      availableDates.push({
-        available: randomNumber >= 5 ? true : false,
-      });
+
+      if (i < dayOfMonth) {
+        availableDates.push({
+          available: false,
+        });
+      } else {
+        availableDates.push({
+          available: randomNumber >= 3 ? true : false,
+        });
+      }
+
     }
     this.setState({ availableDates });
   }
@@ -70,7 +78,7 @@ class App extends Component {
           rating={4.5}
           reviews={123}
           availableDates={availableDates}
-          calendarData={{ emptyBlocks, daysInMonth, currentDate, showCalendar, checkInDate, checkOutDate, activeInput }}
+          calendarData={{ emptyBlocks, daysInMonth, month, currentDate, showCalendar, checkInDate, checkOutDate, activeInput }}
           onHandleShowCalendar={this.handleShowCalendar}
           onHandleMonthChange={this.handleMonthChange}
           onHandleSelectDate={this.handleSelectDate}

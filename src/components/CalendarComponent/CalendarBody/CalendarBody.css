@@ -20,6 +20,12 @@
 .day.disabled:hover {
   color: #ea6462;
   background-color: #fff;
+  border-color: #ea6462;
+}
+
+.day.today {
+  border-color: green;
+  color: green;
 }
 
 .weekday {
@@ -41,6 +47,6 @@
 }
 
 .day:hover {
-  color: #fff;
-  background-color: paleturquoise;
+  color: darkturquoise;
+  border-color: darkturquoise;
 }
