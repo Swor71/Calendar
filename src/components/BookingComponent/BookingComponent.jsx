@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import BookingNav from './BookingNav/BookingNav';
 import BookingBody from './BookingBody/BookingBody';
 import PropTypes from 'prop-types';
-import { month, year, firstDayOfMonth, formatDate, selectDate } from '../../utils/dateFormats';
 
 import './BookingComponent.css';
 
@@ -11,46 +10,14 @@ class BookingComponent extends PureComponent {
     price: PropTypes.number,
     rating: PropTypes.number,
     reviews: PropTypes.number,
-    availableDates: PropTypes.arrayOf(PropTypes.object),
-  }
-
-  state = {
-    month,
-    year,
-    checkInDate: '',
-    checkOutDate: '',
-    activeInput: '',
-    showCalendar: false,
-  }
-
-  handleShowCalendar = (type) => {
-    this.setState({ showCalendar: true, activeInput: type });
-  }
-
-  handleMonthChange = (value) => {
-    this.setState(prevState => ({ month: prevState.month + value }));
-  }
-
-  handleSelectDate = (day) => {
-    const { activeInput, month, year } = this.state;
-    const date = selectDate(year, month, day);
-    this.setState({ [activeInput]: date, showCalendar: false });
+    calendarData: PropTypes.objectOf(PropTypes.any),
+    onHandleShowCalendar: PropTypes.func,
+    onHandleMonthChange: PropTypes.func,
+    onHandleSelectDate: PropTypes.func,
   }
 
   render() {
-    const { checkInDate, checkOutDate, showCalendar, month, year, activeInput } = this.state;
-    const { price, rating, reviews, availableDates: currentMonth } = this.props;
-
-    const currentDate = formatDate(year, month);
-
-    const startOfMonth = firstDayOfMonth(year, month);
-    let emptyBlocks = [];
-    for (let i = 0; i <= startOfMonth; i++) {
-      emptyBlocks.push(i);
-    }
-    if (emptyBlocks.length > 6) {
-      emptyBlocks = [];
-    }
+    const { price, rating, reviews, calendarData, onHandleShowCalendar, onHandleMonthChange, onHandleSelectDate } = this.props;
 
     return (
       <div className='booking-component__wrapper'>
@@ -60,10 +27,10 @@ class BookingComponent extends PureComponent {
           reviews={reviews}
         />
         <BookingBody
-          calendarData={{ emptyBlocks, currentMonth, currentDate, showCalendar, checkInDate, checkOutDate, activeInput }}
-          onHandleShowCalendar={this.handleShowCalendar}
-          onHandleMonthChange={this.handleMonthChange}
-          onHandleSelectDate={this.handleSelectDate}
+          calendarData={calendarData}
+          onHandleShowCalendar={onHandleShowCalendar}
+          onHandleMonthChange={onHandleMonthChange}
+          onHandleSelectDate={onHandleSelectDate}
         />
       </div>
     );

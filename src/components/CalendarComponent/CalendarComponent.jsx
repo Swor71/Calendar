@@ -9,7 +9,7 @@ import './CalendarComponent.css';
 
 class CalendarComponent extends PureComponent {
   static propTypes = {
-    calendarData: PropTypes.object,
+    calendarData: PropTypes.objectOf(PropTypes.any),
     onHandleSelectDate: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
   }

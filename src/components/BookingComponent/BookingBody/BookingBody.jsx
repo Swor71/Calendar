@@ -6,7 +6,7 @@ import './BookingBody.css';
 
 class BookingBody extends PureComponent {
   static propTypes = {
-    calendarData: PropTypes.object,
+    calendarData: PropTypes.objectOf(PropTypes.any),
     onHandleSelectDate: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
     onHandleShowCalendar: PropTypes.func,
