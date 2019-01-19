@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import BookingNav from './BookingNav/BookingNav';
 import BookingBody from './BookingBody/BookingBody';
 import PropTypes from 'prop-types';
-import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate } from '../../utils/dateFormats';
+import { month, year, firstDayOfMonth, formatDate, selectDate } from '../../utils/dateFormats';
 
 import './BookingComponent.css';
 
@@ -32,40 +32,24 @@ class BookingComponent extends PureComponent {
   }
 
   handleSelectDate = (day) => {
-    const { activeInput } = this.state;
-    let _month = this.state.month;
-    let _year = this.state.year;
-    if (_month >= 12) {
-      _month -= 12;
-      _year += 1;
-    } else if (_month < 0) {
-      _month += 12;
-      _year -= 1;
-    }
-    const date = `${day}/${_month + 1}/${_year}`;
+    const { activeInput, month, year } = this.state;
+    const date = selectDate(year, month, day);
     this.setState({ [activeInput]: date, showCalendar: false });
   }
 
   render() {
     const { checkInDate, checkOutDate, showCalendar, month, year, activeInput } = this.state;
-    const { price, rating, reviews } = this.props;
+    const { price, rating, reviews, availableDates: currentMonth } = this.props;
+
     const currentDate = formatDate(year, month);
-    const amountOfDays = numberOfDaysInMonth(year, month);
+
     const startOfMonth = firstDayOfMonth(year, month);
-    let currentMonth = [];
     let emptyBlocks = [];
     for (let i = 0; i <= startOfMonth; i++) {
       emptyBlocks.push(i);
     }
     if (emptyBlocks.length > 6) {
       emptyBlocks = [];
-    }
-    for (let i = 1; i <= amountOfDays; i++) {
-      const randomNumber = Math.floor(Math.random() * 10);
-      currentMonth.push({
-        dayNumber: i,
-        available: randomNumber >= 5 ? true : false,
-      });
     }
 
     return (

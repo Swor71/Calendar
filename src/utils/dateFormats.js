@@ -16,8 +16,17 @@ export function firstDayOfMonth(yyyy, mm) {
 }
 
 export function formatDate(yyyy, mm) {
-  const date = new Date(yyyy, mm + 1, 0).toDateString();
-  const _month = date.slice(4,7);
-  const _year = date.slice(11);
-  return `${_month} ${_year}`;
+  const date = new Date(yyyy, mm + 1, 0).toISOString();
+  const _month = date.slice(5,7);
+  const _year = date.slice(0,4);
+
+  return `${monthsArr[Number(_month - 1)]} ${_year}`;
+}
+
+export function selectDate(yyyy, mm, dd) {
+  const date = new Date(yyyy, mm + 1, 0).toISOString();
+  const _month = date.slice(5,7);
+  const _year = date.slice(0,4);
+
+  return `${dd}/${_month}/${_year}`;
 }
