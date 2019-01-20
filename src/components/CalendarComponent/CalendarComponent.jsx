@@ -1,13 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import CalendarNav from './CalendarNav/CalendarNav';
 import CalendarBody from './CalendarBody/CalendarBody';
 import CalendarFooter from './CalendarFooter/CalendarFooter';
 import PropTypes from 'prop-types';
 
-
 import './CalendarComponent.css';
 
-class CalendarComponent extends PureComponent {
+class CalendarComponent extends Component {
   static propTypes = {
     availableDates: PropTypes.arrayOf(PropTypes.object),
     calendarData: PropTypes.objectOf(PropTypes.any),
@@ -20,7 +19,7 @@ class CalendarComponent extends PureComponent {
     const selectedInput = 'calendar-component__wrapper ' + (activeInput === 'checkOutDate' ? 'checkOutDate' : 'checkInDate');
 
     return (
-      <div className={selectedInput}>
+      <div className={selectedInput} name="calendar">
         <CalendarNav
           currentDate={currentDate}
           onHandleMonthChange={onHandleMonthChange}

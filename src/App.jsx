@@ -53,7 +53,12 @@ class App extends Component {
   handleSelectDate = (day) => {
     const { activeInput, month, year } = this.state;
     const date = selectDate(year, month, day);
-    this.setState({ [activeInput]: date, showCalendar: false });
+
+    if (activeInput === 'checkInDate') {
+      this.setState({ [activeInput]: date, activeInput: 'checkOutDate' });
+    } else {
+      this.setState({ [activeInput]: date, showCalendar: false });
+    }
   }
 
   render() {
@@ -80,7 +85,8 @@ class App extends Component {
 
     return (
       <div className='App'
-        onClick={this.handleCloseCalendar}>
+      // onClick={this.handleCloseCalendar}>
+      >
         <BookingComponent
           price={298}
           rating={4.5}
