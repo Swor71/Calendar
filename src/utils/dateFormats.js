@@ -31,3 +31,16 @@ export function selectDate(yyyy, mm, dd) {
 
   return `${dd}/${_month}/${_year}`;
 }
+
+export function parseDate(date) {
+  let split = date.split('/');
+
+  if (split[0].length === 1) {
+    split[0] = '0' + split[0];
+  }
+  return split.reverse().join('-');
+}
+
+export function calculateAmountOfDays(ms) {
+  return Math.floor(ms / (1000*60*60*24));
+}

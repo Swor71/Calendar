@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import CalendarComponent from '../../CalendarComponent/CalendarComponent';
 import PropTypes from 'prop-types';
+import { parseDate, calculateAmountOfDays } from '../../../utils/dateFormats';
 
 import './BookingBody.css';
 
@@ -11,10 +12,19 @@ class BookingBody extends PureComponent {
     onHandleSelectDate: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
     onHandleShowCalendar: PropTypes.func,
+    price: PropTypes.number,
   }
 
   render() {
-    const { calendarData, calendarData: { checkInDate, checkOutDate, showCalendar }, availableDates, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar } = this.props;
+    const { calendarData, calendarData: { checkInDate, checkOutDate, showCalendar }, availableDates, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar, price } = this.props;
+
+    let lenghtOfStay = 0;
+
+    if (checkInDate && checkOutDate) {
+      const ms = new Date(parseDate(checkOutDate)) - new Date(parseDate(checkInDate));
+
+      lenghtOfStay = calculateAmountOfDays(ms);
+    }
 
     return (
       <div className="booking-body__wrapper">
@@ -46,6 +56,16 @@ class BookingBody extends PureComponent {
             />
             : null}
         </div>
+        <div className="booking-body__output-wrapper">
+          <span className="booking-body__output--header">Total price</span>
+          <div className="booking-body__output--total-price">
+            <span className={checkInDate && checkOutDate ? 'price-calculated' : ''}>
+              {checkInDate && checkOutDate
+                ? `Total price for ${lenghtOfStay} night${lenghtOfStay > 1 ? 's' : ''} is ${lenghtOfStay * price} zł`
+                : 'Please select both dates'}</span>
+          </div>
+        </div>
+        <button className="booking-body__confirmation-button">confirm your booking</button>
       </div>
     );
   }

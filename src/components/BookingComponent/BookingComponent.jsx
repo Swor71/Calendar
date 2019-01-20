@@ -28,6 +28,7 @@ class BookingComponent extends PureComponent {
           reviews={reviews}
         />
         <BookingBody
+          price={price}
           availableDates={availableDates}
           calendarData={calendarData}
           onHandleShowCalendar={onHandleShowCalendar}
