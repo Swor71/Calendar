@@ -41,10 +41,14 @@ export function parseDate(date) {
   return split.reverse().join('-');
 }
 
-export function calculateAmountOfDays(ms) {
-  return Math.floor(ms / (1000*60*60*24));
+export function dateToMS(date) {
+  return new Date(parseDate(date));
 }
 
 export function calculateDiffInMS(date1, date2) {
-  return Math.abs(new Date(parseDate(date1)) - new Date(parseDate(date2)));
+  return Math.abs(dateToMS(date1) - dateToMS(date2));
+}
+
+export function calculateAmountOfDays(ms) {
+  return Math.floor(ms / (1000*60*60*24));
 }
