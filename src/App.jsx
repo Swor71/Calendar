@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BookingComponent from './components/BookingComponent/BookingComponent';
-import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate, selectDate, dayOfMonth } from './utils/dateFormats';
+import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate, selectDate, dayOfMonth, parseDate } from './utils/dateFormats';
 
 import './App.css';
 
@@ -51,12 +51,15 @@ class App extends Component {
   }
 
   handleSelectDate = (day) => {
-    const { activeInput, month, year } = this.state;
+    const { activeInput, month, year, checkInDate } = this.state;
     const date = selectDate(year, month, day);
 
     if (activeInput === 'checkInDate') {
       this.setState({ [activeInput]: date, activeInput: 'checkOutDate' });
     } else {
+      if (parseDate(date) < parseDate(checkInDate)) {
+        return null;
+      }
       this.setState({ [activeInput]: date, showCalendar: false });
     }
   }

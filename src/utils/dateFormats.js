@@ -44,3 +44,7 @@ export function parseDate(date) {
 export function calculateAmountOfDays(ms) {
   return Math.floor(ms / (1000*60*60*24));
 }
+
+export function calculateDiffInMS(date1, date2) {
+  return Math.abs(new Date(parseDate(date1)) - new Date(parseDate(date2)));
+}

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import CalendarComponent from '../../CalendarComponent/CalendarComponent';
 import PropTypes from 'prop-types';
-import { parseDate, calculateAmountOfDays } from '../../../utils/dateFormats';
+import { calculateAmountOfDays, calculateDiffInMS } from '../../../utils/dateFormats';
 
 import './BookingBody.css';
 
@@ -21,8 +21,7 @@ class BookingBody extends PureComponent {
     let lenghtOfStay = 0;
 
     if (checkInDate && checkOutDate) {
-      const ms = new Date(parseDate(checkOutDate)) - new Date(parseDate(checkInDate));
-
+      const ms = calculateDiffInMS(checkInDate, checkOutDate);
       lenghtOfStay = calculateAmountOfDays(ms);
     }
 
