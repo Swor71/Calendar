@@ -14,13 +14,27 @@
   margin-left: 5px;
 }
 
-.booking-nav__rating {
+.booking-nav__rating--stars {
   color: teal;
   padding-bottom: 20px;
 }
+.booking-nav__rating--half-star {
+  color: #dee0e4;
+  position: relative;
+}
 
-.booking-nav__rating--amount {
-  color: initial;
+.booking-nav__rating--half-star::after {
+  content: '★';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  color: teal;
+}
+
+.booking-nav__rating--reviews {
+  color: #000;
   font-size: .8em;
   font-weight: 600;
+  margin-left: 5px;
 }

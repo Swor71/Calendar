@@ -12,15 +12,19 @@ class BookingNav extends PureComponent {
 
   render() {
     const { price, rating, reviews } = this.props;
-    let stars = '★'.repeat(rating);
-    // if (rating % 2 !== 0) {
-    //   stars += '★';
-    // }
+    const star = '★';
+    let stars = star.repeat(rating);
+
     return (
       <div className="booking-nav__wrapper">
         <span className="booking-nav__price">{price} zł<small>per night</small></span>
-        <span className="booking-nav__rating">{stars}
-          <span className="booking-nav__rating--amount">{reviews}</span>
+        <span className="booking-nav__rating--stars">
+          {`${stars}`}
+          {rating % 1 !== 0
+            ? <span className="booking-nav__rating--half-star">{star}</span>
+            : null
+          }
+          <span className="booking-nav__rating--reviews">{reviews}</span>
         </span>
       </div>
     );
