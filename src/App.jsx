@@ -51,10 +51,13 @@ class App extends Component {
   }
 
   handleSelectDate = (day) => {
-    const { activeInput, month, year, checkInDate } = this.state;
+    const { activeInput, month, year, checkInDate, checkOutDate } = this.state;
     const date = selectDate(year, month, day);
 
     if (activeInput === 'checkInDate') {
+      if (parseDate(date) > parseDate(checkOutDate)) {
+        return null;
+      }
       this.setState({ [activeInput]: date, activeInput: 'checkOutDate' });
     } else {
       if (parseDate(date) < parseDate(checkInDate)) {
