@@ -60,7 +60,7 @@ class BookingBody extends PureComponent {
           <span className="booking-body__output--header">Total price</span>
           <div className="booking-body__output--total-price">
             <span className={checkInDate && checkOutDate ? 'price-calculated' : ''}>
-              {checkInDate && checkOutDate
+              {checkInDate && checkOutDate && lenghtOfStay !== 0
                 ? `Total price for ${lenghtOfStay} night${lenghtOfStay > 1 ? 's' : ''} is ${lenghtOfStay * price} zł`
                 : 'Please select both dates'}</span>
           </div>

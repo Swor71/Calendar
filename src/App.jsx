@@ -39,6 +39,13 @@ class App extends Component {
     this.setState({ showCalendar: true, activeInput: type });
   }
 
+  handleCloseCalendar = () => {
+    const { showCalendar } = this.state;
+    if (showCalendar) {
+      this.setState({ showCalendar: false });
+    }
+  }
+
   handleMonthChange = (value) => {
     this.setState(prevState => ({ month: prevState.month + value }));
   }
@@ -72,7 +79,8 @@ class App extends Component {
     }
 
     return (
-      <div className='App'>
+      <div className='App'
+        onClick={this.handleCloseCalendar}>
         <BookingComponent
           price={298}
           rating={4.5}
