@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import BookingNav from './BookingNav/BookingNav';
 import BookingBody from './BookingBody/BookingBody';
-import PropTypes from 'prop-types';
 
 import './BookingComponent.css';
 
-class BookingComponent extends PureComponent {
+class BookingComponent extends Component {
   static propTypes = {
     price: PropTypes.number,
     rating: PropTypes.number,
     reviews: PropTypes.number,
     availableDates: PropTypes.arrayOf(PropTypes.object),
-    calendarData: PropTypes.objectOf(PropTypes.any),
+    calendarData: PropTypes.object,
     onHandleShowCalendar: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
     onHandleSelectDate: PropTypes.func,

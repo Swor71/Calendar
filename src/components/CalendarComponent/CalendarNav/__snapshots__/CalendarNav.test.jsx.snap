@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarNav renders correctly 1`] = `
+<div
+  className="calendar-nav__wrapper"
+>
+  <button
+    className="calendar-nav__btn--arrow-left"
+    onClick={[Function]}
+  >
+    ⟵
+  </button>
+  <span
+    className="calendar-nav__date"
+  />
+  <button
+    className="calendar-nav__btn--arrow-right"
+    onClick={[Function]}
+  >
+    ⟶
+  </button>
+</div>
+`;

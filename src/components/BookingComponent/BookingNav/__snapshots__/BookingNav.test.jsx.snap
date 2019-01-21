@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookingNav renders correctly 1`] = `
+<div
+  className="booking-nav__wrapper"
+>
+  <span
+    className="booking-nav__price"
+  >
+     zł
+    <small>
+      per night
+    </small>
+  </span>
+  <span
+    className="booking-nav__rating--stars"
+  >
+    
+    <span
+      className="booking-nav__rating--half-star"
+    >
+      ★
+    </span>
+    <span
+      className="booking-nav__rating--reviews"
+    />
+  </span>
+</div>
+`;
+
+exports[`CalendarNav renders correctly 1`] = `
+<div
+  className="booking-nav__wrapper"
+>
+  <span
+    className="booking-nav__price"
+  >
+     zł
+    <small>
+      per night
+    </small>
+  </span>
+  <span
+    className="booking-nav__rating--stars"
+  >
+    
+    <span
+      className="booking-nav__rating--half-star"
+    >
+      ★
+    </span>
+    <span
+      className="booking-nav__rating--reviews"
+    />
+  </span>
+</div>
+`;

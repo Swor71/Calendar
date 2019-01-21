@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import BookingComponent from './components/BookingComponent/BookingComponent';
-import { month, year, numberOfDaysInMonth, firstDayOfMonth, formatDate, selectDate, dayOfMonth, dateToMS } from './utils/dateFormats';
+import { currentMonth, currentYear, numberOfDaysInMonth, firstDayOfMonth, formatDate, selectDate, dayOfMonth, dateToMS } from './utils/dateFormats';
 
 import './App.css';
 
 class App extends Component {
   state = {
-    month,
-    year,
+    month: currentMonth,
+    year: currentYear,
     checkInDate: '',
     checkOutDate: '',
     activeInput: '',
@@ -16,8 +16,13 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.setState({ availableDates: this.generateAvailableDates() });
+  }
+
+  generateAvailableDates() {
     let availableDates = [];
-    const amountOfDays = numberOfDaysInMonth(year, month);
+    const amountOfDays = numberOfDaysInMonth(currentYear, currentMonth);
+
     for (let i = 1; i <= amountOfDays; i++) {
       const randomNumber = Math.floor(Math.random() * 10);
 
@@ -27,11 +32,12 @@ class App extends Component {
         });
       } else {
         availableDates.push({
-          available: randomNumber >= 3 ? true : false,
+          available: randomNumber >= 3,
         });
       }
     }
-    this.setState({ availableDates });
+
+    return availableDates;
   }
 
   handleShowCalendar = (type) => {
@@ -68,10 +74,9 @@ class App extends Component {
 
   render() {
     const { checkInDate, checkOutDate, showCalendar, month, year, activeInput, availableDates } = this.state;
-
     const currentDate = formatDate(year, month);
-
     const startOfMonth = firstDayOfMonth(year, month);
+
     let emptyBlocks = [];
     for (let i = 0; i <= startOfMonth; i++) {
       emptyBlocks.push(i);

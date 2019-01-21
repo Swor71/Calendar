@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './CalendarNav.css';
 
-class CalendarNav extends PureComponent {
+class CalendarNav extends Component {
   static propTypes = {
     currentDate: PropTypes.string,
     onHandleMonthChange: PropTypes.func,

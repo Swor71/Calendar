@@ -1,29 +1,23 @@
-import React, { PureComponent } from 'react';
-import CalendarComponent from '../../CalendarComponent/CalendarComponent';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { calculateAmountOfDays, calculateDiffInMS } from '../../../utils/dateFormats';
+import CalendarComponent from '../../CalendarComponent/CalendarComponent';
+import { calculateDiffInDays } from '../../../utils/dateFormats';
 
 import './BookingBody.css';
 
-class BookingBody extends PureComponent {
+class BookingBody extends Component {
   static propTypes = {
     availableDates: PropTypes.arrayOf(PropTypes.object),
-    calendarData: PropTypes.objectOf(PropTypes.any),
+    calendarData: PropTypes.object,
     onHandleSelectDate: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
     onHandleShowCalendar: PropTypes.func,
     price: PropTypes.number,
-  }
+  };
 
   render() {
     const { calendarData, calendarData: { checkInDate, checkOutDate, showCalendar }, availableDates, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar, price } = this.props;
-
-    let lenghtOfStayInDays = 0;
-
-    if (checkInDate && checkOutDate) {
-      const ms = calculateDiffInMS(checkInDate, checkOutDate);
-      lenghtOfStayInDays = calculateAmountOfDays(ms);
-    }
+    const lengthOfStayInDays = (checkInDate && checkOutDate) ? calculateDiffInDays(checkInDate, checkOutDate) : 0;
 
     return (
       <div className="booking-body__wrapper">
@@ -47,20 +41,20 @@ class BookingBody extends PureComponent {
             value={checkOutDate}
           />
           {showCalendar
-            ? <CalendarComponent
+            && <CalendarComponent
               calendarData={calendarData}
               availableDates={availableDates}
               onHandleSelectDate={onHandleSelectDate}
               onHandleMonthChange={onHandleMonthChange}
             />
-            : null}
+          }
         </div>
         <div className="booking-body__output-wrapper">
           <span className="booking-body__output--header">Total price</span>
           <div className="booking-body__output--total-price">
             <span className={checkInDate && checkOutDate ? 'price-calculated' : ''}>
-              {checkInDate && checkOutDate && lenghtOfStayInDays !== 0
-                ? `Total price for ${lenghtOfStayInDays} night${lenghtOfStayInDays > 1 ? 's' : ''} is ${lenghtOfStayInDays * price} zł`
+              {checkInDate && checkOutDate && lengthOfStayInDays !== 0
+                ? `Total price for ${lengthOfStayInDays} night${lengthOfStayInDays > 1 ? 's' : ''} is ${lengthOfStayInDays * price} zł`
                 : 'Please select both dates'}</span>
           </div>
         </div>

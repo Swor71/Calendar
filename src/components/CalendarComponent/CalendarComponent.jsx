@@ -9,17 +9,18 @@ import './CalendarComponent.css';
 class CalendarComponent extends Component {
   static propTypes = {
     availableDates: PropTypes.arrayOf(PropTypes.object),
-    calendarData: PropTypes.objectOf(PropTypes.any),
+    calendarData: PropTypes.object,
     onHandleSelectDate: PropTypes.func,
     onHandleMonthChange: PropTypes.func,
   }
 
   render() {
-    const { calendarData, calendarData: { currentDate, activeInput }, availableDates, onHandleSelectDate, onHandleMonthChange } = this.props;
-    const selectedInput = 'calendar-component__wrapper ' + (activeInput === 'checkOutDate' ? 'checkOutDate' : 'checkInDate');
+    const { calendarData, availableDates, onHandleSelectDate, onHandleMonthChange } = this.props;
+    const { currentDate, activeInput } = calendarData;
+    const selectedInput = `calendar-component__wrapper ${(activeInput === 'checkOutDate') ? 'checkOutDate' : 'checkInDate'}`;
 
     return (
-      <div className={selectedInput} name="calendar">
+      <div className={selectedInput}>
         <CalendarNav
           currentDate={currentDate}
           onHandleMonthChange={onHandleMonthChange}

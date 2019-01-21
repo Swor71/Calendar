@@ -1,12 +1,11 @@
-export const daysArr = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-export const monthsArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+export const dayList = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+export const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const date = new Date();
 
-export const dayOfWeek = date.getDay();
 export const dayOfMonth = date.getDate();
-export const month = date.getMonth();
-export const year = date.getFullYear();
+export const currentMonth = date.getMonth();
+export const currentYear = date.getFullYear();
 
 export function numberOfDaysInMonth(yyyy, mm) {
   return new Date(yyyy, mm + 1, 0).getDate();
@@ -18,35 +17,32 @@ export function firstDayOfMonth(yyyy, mm) {
 
 export function formatDate(yyyy, mm) {
   const date = new Date(yyyy, mm + 1, 0).toISOString();
-  const _month = date.slice(5,7);
-  const _year = date.slice(0,4);
+  const month = date.slice(5,7);
+  const year = date.slice(0,4);
 
-  return `${monthsArr[Number(_month - 1)]} ${_year}`;
+  return `${monthList[Number(month - 1)]} ${year}`;
 }
 
 export function selectDate(yyyy, mm, dd) {
   const date = new Date(yyyy, mm + 1, 0).toISOString();
-  const _month = date.slice(5,7);
-  const _year = date.slice(0,4);
+  const month = date.slice(5,7);
+  const year = date.slice(0,4);
 
-  return `${dd}/${_month}/${_year}`;
+  return `${dd}/${month}/${year}`;
 }
 
-export function parseDate(date) {
-  let split = date.split('/');
+export function parseStringToDate(dateString) {
+  const split = dateString.split('/');
 
-  if (split[0].length === 1) {
-    split[0] = '0' + split[0];
-  }
-  return split.reverse().join('-');
+  return new Date(`${split[1]}, ${split[0]}, ${split[2]}`);
 }
 
-export function dateToMS(date) {
-  return new Date(parseDate(date));
+export function dateToMS(dateString) {
+  return parseStringToDate(dateString);
 }
 
-export function calculateDiffInMS(date1, date2) {
-  return Math.abs(dateToMS(date1) - dateToMS(date2));
+export function calculateDiffInDays(date1, date2) {
+  return calculateAmountOfDays(Math.abs(dateToMS(date1) - dateToMS(date2)));
 }
 
 export function calculateAmountOfDays(ms) {

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarFooter renders correctly 1`] = `
+<div
+  className="calendar-footer__wrapper"
+>
+  <span>
+    Minimum stay varies
+  </span>
+  <span>
+    Updated 23 days ago
+  </span>
+</div>
+`;
+
+exports[`CalendarNav renders correctly 1`] = `
+<div
+  className="calendar-footer__wrapper"
+>
+  <span>
+    Minimum stay varies
+  </span>
+  <span>
+    Updated 23 days ago
+  </span>
+</div>
+`;
