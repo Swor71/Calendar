@@ -14,6 +14,16 @@ class CalendarComponent extends Component {
     onHandleMonthChange: PropTypes.func,
   }
 
+  static defaultProps = {
+    availableDates: [{}],
+    calendarData: {
+      currentDate: '',
+      activeInput: '',
+      daysInMonth: [],
+      emptyBlocks: [],
+    },
+  }
+
   render() {
     const { calendarData, availableDates, onHandleSelectDate, onHandleMonthChange } = this.props;
     const { currentDate, activeInput } = calendarData;

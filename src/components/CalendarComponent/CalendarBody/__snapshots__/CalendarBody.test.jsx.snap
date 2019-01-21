@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarBody renders correctly 1`] = `
+<div
+  className="calendar-body__wrapper"
+>
+  <div
+    className="weekday"
+  >
+    Su
+  </div>
+  <div
+    className="weekday"
+  >
+    Mo
+  </div>
+  <div
+    className="weekday"
+  >
+    Tu
+  </div>
+  <div
+    className="weekday"
+  >
+    We
+  </div>
+  <div
+    className="weekday"
+  >
+    Th
+  </div>
+  <div
+    className="weekday"
+  >
+    Fr
+  </div>
+  <div
+    className="weekday"
+  >
+    Sa
+  </div>
+</div>
+`;

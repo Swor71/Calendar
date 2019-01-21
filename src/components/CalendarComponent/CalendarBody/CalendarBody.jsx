@@ -8,12 +8,17 @@ class CalendarBody extends Component {
   static propTypes = {
     calendarData: PropTypes.object,
     availableDates: PropTypes.arrayOf(PropTypes.object),
-    onHandleSelectDate: PropTypes.func.isRequired,
+    onHandleSelectDate: PropTypes.func,
   };
 
   static defaultProps = {
-    calendarData: {},
+    calendarData: {
+      daysInMonth: [],
+      month: '',
+      emptyBlocks: [],
+    },
     availableDates: [],
+
   };
 
   render() {

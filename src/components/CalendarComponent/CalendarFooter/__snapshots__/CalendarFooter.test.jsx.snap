@@ -12,16 +12,3 @@ exports[`CalendarFooter renders correctly 1`] = `
   </span>
 </div>
 `;
-
-exports[`CalendarNav renders correctly 1`] = `
-<div
-  className="calendar-footer__wrapper"
->
-  <span>
-    Minimum stay varies
-  </span>
-  <span>
-    Updated 23 days ago
-  </span>
-</div>
-`;

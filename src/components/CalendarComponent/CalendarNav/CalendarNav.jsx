@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './CalendarNav.css';
+import { monthList, currentMonth, currentYear } from '../../../utils/dateFormats';
 
 class CalendarNav extends Component {
   static propTypes = {
     currentDate: PropTypes.string,
     onHandleMonthChange: PropTypes.func,
-  }
+  };
+
+  static defaultProps = {
+    currentDate: `${monthList[currentMonth]} ${currentYear}`
+  };
 
   render() {
     const { currentDate, onHandleMonthChange } = this.props;

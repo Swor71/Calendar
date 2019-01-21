@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 
 describe('BookingBody', () => {
   it('renders the component', () => {
-    const component = shallow(<BookingBody />);
+    const component = shallow(<BookingBody checkInDate={'30/01/2019'} />);
     expect(component.length).toEqual(1);
   });
 

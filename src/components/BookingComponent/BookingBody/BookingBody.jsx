@@ -15,6 +15,16 @@ class BookingBody extends Component {
     price: PropTypes.number,
   };
 
+  static defaultProps = {
+    availableDates: [],
+    calendarData: {
+      checkInDate: '',
+      checkOutDate: '',
+      showCalendar: false,
+    },
+    price: null,
+  };
+
   render() {
     const { calendarData, calendarData: { checkInDate, checkOutDate, showCalendar }, availableDates, onHandleSelectDate, onHandleMonthChange, onHandleShowCalendar, price } = this.props;
     const lengthOfStayInDays = (checkInDate && checkOutDate) ? calculateDiffInDays(checkInDate, checkOutDate) : 0;

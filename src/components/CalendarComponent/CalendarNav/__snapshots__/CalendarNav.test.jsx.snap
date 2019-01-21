@@ -1,23 +1,175 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CalendarNav renders correctly 1`] = `
-<div
-  className="calendar-nav__wrapper"
->
-  <button
-    className="calendar-nav__btn--arrow-left"
-    onClick={[Function]}
-  >
-    ⟵
-  </button>
-  <span
-    className="calendar-nav__date"
-  />
-  <button
-    className="calendar-nav__btn--arrow-right"
-    onClick={[Function]}
-  >
-    ⟶
-  </button>
-</div>
+exports[`CalendarNav should match snapshot without current date prop 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CalendarNav
+    currentDate="January 2022"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="calendar-nav__btn--arrow-left"
+          onClick={[Function]}
+        >
+          ⟵
+        </button>,
+        <span
+          className="calendar-nav__date"
+        >
+          January 2022
+        </span>,
+        <button
+          className="calendar-nav__btn--arrow-right"
+          onClick={[Function]}
+        >
+          ⟶
+        </button>,
+      ],
+      "className": "calendar-nav__wrapper",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "⟵",
+          "className": "calendar-nav__btn--arrow-left",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "⟵",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "January 2022",
+          "className": "calendar-nav__date",
+        },
+        "ref": null,
+        "rendered": "January 2022",
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "⟶",
+          "className": "calendar-nav__btn--arrow-right",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "⟶",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="calendar-nav__btn--arrow-left"
+            onClick={[Function]}
+          >
+            ⟵
+          </button>,
+          <span
+            className="calendar-nav__date"
+          >
+            January 2022
+          </span>,
+          <button
+            className="calendar-nav__btn--arrow-right"
+            onClick={[Function]}
+          >
+            ⟶
+          </button>,
+        ],
+        "className": "calendar-nav__wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "⟵",
+            "className": "calendar-nav__btn--arrow-left",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "⟵",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "January 2022",
+            "className": "calendar-nav__date",
+          },
+          "ref": null,
+          "rendered": "January 2022",
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "⟶",
+            "className": "calendar-nav__btn--arrow-right",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "⟶",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;

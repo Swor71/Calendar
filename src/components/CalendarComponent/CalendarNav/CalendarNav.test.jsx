@@ -1,23 +1,46 @@
 import React from 'react';
-import CalendarNav from './CalendarNav';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
+import CalendarNav from './CalendarNav';
 
 describe('CalendarNav', () => {
-  it('renders the component', () => {
-    const component = shallow(<CalendarNav />);
-    expect(component.length).toEqual(1);
+  let consoleSpy;
+
+  beforeAll(() => {
+    consoleSpy = jest.spyOn(console, 'error');
   });
 
-  it('renders correctly', () => {
-    const component = renderer
-      .create(<CalendarNav />)
-      .toJSON();
+  it('should match snapshot without current date prop', () => {
+    const component = shallow(<CalendarNav currentDate="January 2022" />);
+
     expect(component).toMatchSnapshot();
   });
 
-  it('renders currentDate as a number', () => {
-    const component = shallow(<CalendarNav />);
-    expect(component.find('.calendar-nav__date')).not.toBeNaN();
+  it('should render the component and verify whether arrows work properly', () => {
+    const propsMock = {
+      onHandleMonthChange: jest.fn(),
+    };
+    const component = shallow(<CalendarNav {...propsMock} />);
+    const arrowLeft = component.find('.calendar-nav__btn--arrow-left');
+    const arrowRight = component.find('.calendar-nav__btn--arrow-right');
+
+    arrowLeft.simulate('click');
+
+    expect(propsMock.onHandleMonthChange).toHaveBeenCalledTimes(1);
+    expect(propsMock.onHandleMonthChange).toHaveBeenCalledWith(-1);
+
+    arrowRight.simulate('click');
+
+    expect(propsMock.onHandleMonthChange).toHaveBeenCalledTimes(2);
+    expect(propsMock.onHandleMonthChange).toHaveBeenCalledWith(1);
+
+    arrowLeft.simulate('click');
+    arrowRight.simulate('click');
+    arrowLeft.simulate('click');
+
+    expect(propsMock.onHandleMonthChange).toHaveBeenCalledTimes(5);
+  });
+
+  it('shows no errors on console', () => {
+    expect(consoleSpy).not.toHaveBeenCalled();
   });
 });

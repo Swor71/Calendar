@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookingComponent renders correctly 1`] = `
+<div
+  className="booking-component__wrapper"
+>
+  <div
+    className="booking-nav__wrapper"
+  >
+    <span
+      className="booking-nav__price"
+    >
+       zł
+      <small>
+        per night
+      </small>
+    </span>
+    <span
+      className="booking-nav__rating--stars"
+    >
+      
+      <span
+        className="booking-nav__rating--half-star"
+      >
+        ★
+      </span>
+      <span
+        className="booking-nav__rating--reviews"
+      />
+    </span>
+  </div>
+  <div
+    className="booking-body__wrapper"
+  >
+    <div
+      className="booking-body__header"
+    >
+      Dates
+    </div>
+    <div
+      className="booking-body__inputs"
+    >
+      <input
+        className="booking-body__inputs--check-in"
+        onClick={[Function]}
+        placeholder="Check In"
+        readOnly={true}
+        type="text"
+        value=""
+      />
+      <span
+        className="booking-body__arrow"
+      >
+        ⟶
+      </span>
+      <input
+        className="booking-body__inputs--check-out"
+        onClick={[Function]}
+        placeholder="Check Out"
+        readOnly={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="booking-body__output-wrapper"
+    >
+      <span
+        className="booking-body__output--header"
+      >
+        Total price
+      </span>
+      <div
+        className="booking-body__output--total-price"
+      >
+        <span
+          className=""
+        >
+          Please select both dates
+        </span>
+      </div>
+    </div>
+    <button
+      className="booking-body__confirmation-button"
+    >
+      confirm your booking
+    </button>
+  </div>
+</div>
+`;
