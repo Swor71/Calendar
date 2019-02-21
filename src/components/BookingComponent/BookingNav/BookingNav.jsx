@@ -13,7 +13,7 @@ class BookingNav extends PureComponent {
   render() {
     const { price, rating, reviews } = this.props;
     const star = '★';
-    let stars = star.repeat(rating);
+    const stars = star.repeat(rating);
 
     return (
       <div className="booking-nav__wrapper">
